@@ -1,0 +1,65 @@
+Gymnasium
+
+Attributes:
+Gym_ID (Primary Key)
+Name
+Address
+Phone_Number
+Member
+
+Attributes:
+Member_ID (Primary Key)
+Last_Name
+First_Name
+Address
+Date_of_Birth
+Gender
+Session
+
+Attributes:
+Session_ID (Primary Key)
+Sport_Type
+Schedule
+Max_Capacity (Default = 20)
+Coach
+
+Attributes:
+Coach_ID (Primary Key)
+Last_Name
+First_Name
+Age
+Specialty
+Relationships
+Gymnasium-Manages-Sessions
+
+A gymnasium can organize multiple sessions, but each session belongs to one gymnasium.
+Relationship: 1 Gymnasium → N Sessions
+Member-Registers-For-Session
+
+A member can register for multiple sessions, and each session can have multiple members.
+Relationship: M Members → N Sessions
+Session-Has-Coaches
+
+Each session can have up to two coaches, and a coach can lead multiple sessions.
+Relationship: M Sessions → N Coaches
+ER Diagram
+Here is the structure in textual format (or I can generate an image for clarity):
+
+Entities:
+Gymnasium → Gym_ID, Name, Address, Phone_Number
+Member → Member_ID, Last_Name, First_Name, Address, Date_of_Birth, Gender
+Session → Session_ID, Sport_Type, Schedule, Max_Capacity
+Coach → Coach_ID, Last_Name, First_Name, Age, Specialty
+Relationships:
+Gymnasium → Session (1
+)
+
+Connect Gym_ID (Gymnasium) to Session_ID (Session).
+Member ↔ Session (M
+)
+
+Use a junction table Registration with attributes: Member_ID, Session_ID.
+Session ↔ Coach (M
+)
+
+Use a junction table Session_Coach with attributes: Session_ID, Coach_ID.
